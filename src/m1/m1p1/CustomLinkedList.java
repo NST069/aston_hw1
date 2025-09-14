@@ -1,4 +1,4 @@
-package m1p1;
+package m1.m1p1;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,7 +43,7 @@ public class CustomLinkedList<T> {
 
     public void add(T item, int position){
         if(!checkIndex(position,true)) throw new IndexOutOfBoundsException();
-        Node<T> n = GetNode(position);
+        Node<T> n = getNode(position);
         Node<T> nPrev = n._prev;//GetNode(position-1);
         Node<T> newNode = new Node<>(item, nPrev, n);
 
@@ -55,10 +55,10 @@ public class CustomLinkedList<T> {
 
     public T get(int position){
         if(!checkIndex(position, false)) throw new IndexOutOfBoundsException();
-        return GetNode(position)._obj;
+        return getNode(position)._obj;
     }
 
-    private Node<T> GetNode(int position){
+    private Node<T> getNode(int position){
         Node<T> n;
         if(position < (this.listSize >> 1) ){
             //start
@@ -128,7 +128,7 @@ public class CustomLinkedList<T> {
             nNext = null;
         }
         else{
-            nNext = GetNode(position);
+            nNext = getNode(position);
             nPrev = nNext._prev;
         }
 
@@ -165,7 +165,7 @@ public class CustomLinkedList<T> {
     }
 
 
-    public void Print(){
+    public void print(){
         Arrays.stream(this.toArray())
                 .reduce((a, e)-> a + ", " + e.toString())
                 .ifPresentOrElse(System.out::println, ()-> System.out.println("List is empty"));

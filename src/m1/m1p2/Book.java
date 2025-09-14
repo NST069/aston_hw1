@@ -1,4 +1,4 @@
-package m1p2;
+package m1.m1p2;
 
 public class Book implements Comparable<Book>{
 
@@ -7,23 +7,23 @@ public class Book implements Comparable<Book>{
     private int _pages;
     private int _publicationYear;
 
-    public String GetName(){ return this._name; }
-    public void SetName(String name){
+    public String getName(){ return this._name; }
+    public void setName(String name){
         this._name = name;
     }
 
-    public String GetAuthor(){ return this._author; }
-    public void SetAuthor(String author){
+    public String getAuthor(){ return this._author; }
+    public void setAuthor(String author){
         this._author = author;
     }
 
-    public int GetPages(){ return this._pages; }
-    public void SetPages(int pages){
+    public int getPages(){ return this._pages; }
+    public void setPages(int pages){
         this._pages = pages;
     }
 
-    public int GetPublicationYear(){ return this._publicationYear; }
-    public void SetPublicationYear(int publicationYear){
+    public int getPublicationYear(){ return this._publicationYear; }
+    public void setPublicationYear(int publicationYear){
         this._publicationYear = publicationYear;
     }
 

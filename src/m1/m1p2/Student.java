@@ -1,4 +1,4 @@
-package m1p2;
+package m1.m1p2;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,22 +11,22 @@ public class Student {
     private String _middleName;
     private final List<Book> _books = new ArrayList<>();
 
-    public String GetLastName(){ return this._lastName; }
-    public void SetLastName(String lastName){
+    public String getLastName(){ return this._lastName; }
+    public void setLastName(String lastName){
         this._lastName = lastName;
     }
 
-    public String GetFirstName(){ return this._firstName; }
-    public void SetFirstName(String firstName){
+    public String getFirstName(){ return this._firstName; }
+    public void setFirstName(String firstName){
         this._firstName = firstName;
     }
 
-    public String GetMiddleName(){ return this._middleName; }
-    public void SetMiddleName(String middleName){
+    public String getMiddleName(){ return this._middleName; }
+    public void setMiddleName(String middleName){
         this._middleName = middleName;
     }
 
-    public List<Book> GetBooks(){ return Collections.unmodifiableList(this._books); }
+    public List<Book> getBooks(){ return Collections.unmodifiableList(this._books); }
 
     public Student(String lastName, String firstName, String middleName){
         this._lastName = lastName;
@@ -34,7 +34,7 @@ public class Student {
         this._middleName = middleName;
     }
 
-    public void AddBook(String name, String author, int pages, int publicationYear){
+    public void addBook(String name, String author, int pages, int publicationYear){
         this._books.add(new Book(name, author, pages, publicationYear));
     }
 

@@ -1,4 +1,4 @@
-package m1p1;
+package m1.m1p1;
 
 import java.util.HashMap;
 
