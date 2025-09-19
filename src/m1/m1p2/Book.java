@@ -1,5 +1,7 @@
 package m1.m1p2;
 
+import java.util.Objects;
+
 public class Book implements Comparable<Book>{
 
     private String _name;
@@ -43,6 +45,27 @@ public class Book implements Comparable<Book>{
 
     @Override
     public int compareTo(Book b) {
-        return b._pages-this._pages;
+        //return b._pages-this._pages;
+        int result = Integer.compare(b._pages, this._pages);
+        if (result != 0) return result;
+        return this._name.compareTo(b._name);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || this.getClass() != o.getClass()) return false;
+
+        Book b = (Book) o;
+
+        return Objects.equals(this._name, b._name)
+                && Objects.equals(this._author, b._author)
+                && this._pages == b._pages
+                && this._publicationYear == b._publicationYear;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(this._name, this._author, this._pages, this._publicationYear);
     }
 }

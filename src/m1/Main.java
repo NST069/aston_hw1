@@ -1,5 +1,6 @@
 package m1;
 
+import m1.m1p1.AnotherCustomHashSet;
 import m1.m1p1.CustomHashSet;
 import m1.m1p1.CustomLinkedList;
 import m1.m1p2.Book;
@@ -13,7 +14,7 @@ public class Main {
         System.out.println("Модуль 1 задание 1");
 
         System.out.println("\tCustom Hash Set");
-        CustomHashSet<String> hs = new CustomHashSet<>();
+        AnotherCustomHashSet<String> hs = new AnotherCustomHashSet<>();
         hs.add("str1");
         hs.add("str2");
         hs.add(new String("str2"));
@@ -84,19 +85,16 @@ public class Main {
             s.addBook("Мост через облака", "Ефимова Алина Артёмовна", 310, 2006);
         students.add(s);
 
-
         students.stream()
                 .peek(System.out::println)
-                .map(Student::getBooks)
-                .forEach(e->e.stream()
-                    .sorted()
-                    .distinct()
-                    .filter(b->b.getPublicationYear()>=2000)
-                    .limit(3)
-                    .map(Book::getPublicationYear)
-                    .findFirst()
-                    .ifPresentOrElse(System.out::println, ()-> System.out.println("Книг не обнаружено"))
-                );
+                .flatMap(e->e.getBooks().stream())
+                .sorted()
+                .distinct()
+                .filter(b->b.getPublicationYear()>=2000)
+                .limit(3)
+                .findFirst()
+                .map(Book::getPublicationYear)
+                .ifPresentOrElse(System.out::println, ()-> System.out.println("Книг не обнаружено"));
 
     }
 }
